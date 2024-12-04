@@ -34,7 +34,7 @@ export const LoginUser = async (username, password) => {
 }
 
 export const RefreshToken = async (refreshToken) => {
-    const user = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET|| "unaclavesecreta");
+    const user = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
 
     const userDB = await Usuario.findOne({username: user.username});
 
