@@ -7,7 +7,7 @@ import routerBlog from "./router/routerBlog.js";
 import swaggerUI from "swagger-ui-express";
 import swaggerDocument from "./swagger.json" assert { type: "json" };
 import routerAutor from "./router/routerAutor.js";
-import { brotliMiddleware } from "./middleware/brotlimiddleware.js";
+// import { brotliMiddleware } from "./middleware/brotlimiddleware.js";
 import routerUsuario from "./router/routerUsuario.js";
 import { authMiddleware } from "./middleware/authmiddleware.js";
 import { logger } from "./config/Winston.js";
@@ -30,25 +30,6 @@ app.use((req, res, next) => {
   logger.error(`${req.method} ${req.url}`);
   next();
 });
-
-/*app.use(
-  compression({
-    filter: (req, res) => {
-      return compression.filter(req, res);
-    },
-    threshold: 1024, // Tamaño mínimo en bytes para comprimir (1 KB)
-    level: 9, // Nivel de compresión (0-9, donde 9 es máxima compresión)
-  })
-);*/
-
-/*app.use(
-  compression({
-      brotli: {
-          enabled: true,
-          zlib: zlib.constants.BROTLI_PARAM_QUALITY,
-      },
-  })
-);*/
 
 app.use("/productos", routerProducto);
 app.use("/blogs", routerBlog);

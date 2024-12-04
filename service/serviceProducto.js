@@ -33,8 +33,8 @@ export const getProductsFiltrados = async (nombre,precioMin,precioMax,orderby,or
 
 export const getProductsPaginado = async (page, limit) => {
     const skip = (page - 1) * limit;
-    const productos = await Producto.find({estado:true}).skip(skip).limit(limit) // 3 productos que estado = true y tenemos 2 que el estado = false
-    const cantidadItems = await Producto.find({estado:true}).countDocuments(); // 3 != 5
+    const productos = await Producto.find({estado:true}).skip(skip).limit(limit)
+    const cantidadItems = await Producto.find({estado:true}).countDocuments(); 
     const respuesta = {
         productos: productos,
         cantidadItems: cantidadItems,
@@ -45,7 +45,7 @@ export const getProductsPaginado = async (page, limit) => {
 };
 
 export const getProduct = async (id) => {
-    const producto = await Producto.findOne({id:id}) // no usamos el findById porque machea con el _id
+    const producto = await Producto.findOne({id:id})
     return producto;
 };
 

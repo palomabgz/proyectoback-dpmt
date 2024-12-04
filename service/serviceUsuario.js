@@ -17,7 +17,6 @@ export const RegisterUser = async (username, password, email,fechaNacimiento) =>
 export const LoginUser = async (username, password) => {
     try {
         const user = await Usuario.findOne({username});
-        //si no existe buscamos un usuario con el email = username // adminNuevo o admiNnUEVO@gmail.com
     if(!user) {
         return -1
     }
