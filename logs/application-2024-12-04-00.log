@@ -1,0 +1,15 @@
+{"level":"error","message":"POST /","timestamp":"2024-12-04T03:08:11.161Z"}
+{"level":"error","message":"POST /productos","timestamp":"2024-12-04T03:35:56.864Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T03:44:32.649Z"}
+{"level":"error","message":"GET /admin/login","timestamp":"2024-12-04T03:44:33.210Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T03:44:34.843Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T03:44:35.340Z"}
+{"level":"error","message":"GET /admin/login","timestamp":"2024-12-04T03:44:37.758Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T03:44:41.119Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T03:44:59.627Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T03:46:23.016Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T03:46:28.596Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T03:48:00.732Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T03:48:05.549Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T03:48:51.650Z"}
+{"level":"error","message":"POST /productos","timestamp":"2024-12-04T03:52:01.494Z"}

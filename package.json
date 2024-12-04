@@ -1,0 +1,37 @@
+{
+  "name": "backproyectoblog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "20.18.0"
+  },
+  "scripts": {
+    "dev": "dotenv -e .dev.env nodemon index.js",
+    "prod": "dotenv -e .prod.env nodemon index.js",
+    "start": "dotenv -e .prod.env nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "compression": "^1.7.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^7.4.4",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

@@ -1,0 +1,10 @@
+{"level":"error","message":"POST /productos","timestamp":"2024-12-04T04:07:09.176Z"}
+{"level":"error","message":"POST /productos","timestamp":"2024-12-04T04:26:21.320Z"}
+{"level":"error","message":"GET /productos","timestamp":"2024-12-04T04:26:46.542Z"}
+{"level":"error","message":"POST /productos","timestamp":"2024-12-04T04:28:17.561Z"}
+{"level":"error","message":"GET /productos","timestamp":"2024-12-04T04:28:20.771Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T04:45:44.093Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T04:46:10.816Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T04:47:09.181Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T04:57:59.782Z"}
+{"level":"error","message":"GET /blogs","timestamp":"2024-12-04T04:59:06.024Z"}

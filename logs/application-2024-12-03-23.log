@@ -1,0 +1,13 @@
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:41:27.536Z"}
+{"level":"error","message":"GET /admin/login","timestamp":"2024-12-04T02:41:28.000Z"}
+{"level":"error","message":"GET /favicon.ico","timestamp":"2024-12-04T02:41:28.479Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:41:30.369Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:41:30.494Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:42:40.438Z"}
+{"level":"error","message":"GET /favicon.ico","timestamp":"2024-12-04T02:42:40.851Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:45:16.428Z"}
+{"level":"error","message":"GET /admin/login","timestamp":"2024-12-04T02:45:17.220Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:45:18.611Z"}
+{"level":"error","message":"GET /","timestamp":"2024-12-04T02:45:18.745Z"}
+{"level":"error","message":"GET /admin/login","timestamp":"2024-12-04T02:45:27.943Z"}
+{"level":"error","message":"POST /","timestamp":"2024-12-04T02:45:41.774Z"}
