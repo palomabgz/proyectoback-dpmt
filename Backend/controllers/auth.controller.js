@@ -32,7 +32,7 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     try {
         //busca el correo del usuario
-        const userFound = await test.Users.findOne({ email })
+        const userFound = await Users.findOne({ email })
         //verifica el correo
         if (!userFound) return res.status(404).json({ message: "Correo o contraseña incorrecto" })
         //compara las contraseñas

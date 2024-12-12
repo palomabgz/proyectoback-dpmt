@@ -88,7 +88,7 @@ export function Register() {
           <button>Registrate</button>
         </form>
 
-        <span className="noaccount">tenes cuenta? <Link to="/login">Iniciar sesión</Link></span>
+        <span className="noaccount">Tenes cuenta? <Link to="/login">Iniciar sesión</Link></span>
           {errors.form && <p className="field-error">{errors.form}</p>}
       </section>
     </section>
