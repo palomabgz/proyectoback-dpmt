@@ -1,4 +1,4 @@
-## API REST de Blog Paloma Belen, Leonardo Valen, Marcelo Caballero ##
+## API REST de Blog Paloma Belen González, Leonardo Valenzuela, Marcelo Caballero ##
 
 **Descripción:**
 
