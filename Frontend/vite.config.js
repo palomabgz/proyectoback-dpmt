@@ -20,6 +20,13 @@ export default defineConfig(({mode})=>{
           changeOrigin: true,
           secure: true,
           ws: true,
+        },
+        '/user': {
+          target: env.VITE_API_URL,
+          rewrite: (path) => path.replace(/^\/user/, '/user'),  // Asegúrate de corregir esto
+          changeOrigin: true,
+          secure: true,
+          ws: true,
         }
       }
     }

@@ -53,7 +53,7 @@ export const AuthProvider = ({children}) =>{
         if (storedUsername) {
             try {
                 const res = await fetchData({
-                    url: '/user/user',
+                    url: '/user/getUser',
                     method: 'get',
                 });
                 if (!res) {

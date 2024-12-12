@@ -4,11 +4,11 @@ import './navbar.css'
 
 export function Navbar() {
 
-    const { user, isAuthenticated, logout } = useAuth()
+    const { user, loading, isAuthenticated, logout } = useAuth()
 
     const navigate = useNavigate()
 
-    // Manejo de cierre de sesión
+    // Manejo de cierre de sesion
     const handleLogout = async () => {
         try {
             await logout()

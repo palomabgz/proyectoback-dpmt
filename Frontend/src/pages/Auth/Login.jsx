@@ -6,7 +6,7 @@ import './auth.css'
 
 export function Login() {
 
-    const { signIn, error } = useAuth()
+    const { signIn } = useAuth()
 
     const [errors, setErrors] = useState({})
     const [errorBackEnd, setErrorBackEnd] = useState({})
@@ -20,7 +20,7 @@ export function Login() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value })
-        setErrors({ ...errors, [name]: '' }); // Limpiar el error cuando el usuario comienza a escribir
+        setErrors({ ...errors, [name]: '' }); // Limpia el error cuando el usuario comienza a escribir
     }
 
     const handleSubmit = async (e) => {
@@ -43,7 +43,7 @@ export function Login() {
             newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
         }
         
-        // Si hay errores, mostrarlos y detener el envio del formulario
+        // Si hay errores los muestra y detiene el envio del formulario
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -59,7 +59,6 @@ export function Login() {
             } else {
                 setErrorBackEnd({ general: error || "Error al iniciar sesión, por favor inténtelo de nuevo" });
             }
-            console.log(error)
         }
     }
 

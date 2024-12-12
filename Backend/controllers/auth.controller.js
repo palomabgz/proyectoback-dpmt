@@ -66,15 +66,3 @@ export const logout = async (req, res) => {
     }
 }
 
-
-export const getUsers = async (req, res) => {
-    try {
-        //busca el correo del usuario
-        const userFound = await Users.find();
-
-        res.status(201).json(userFound)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ message: "Error interno del servidor" })
-    }
-}
