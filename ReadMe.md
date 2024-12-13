@@ -1,4 +1,4 @@
-## API REST de Blog Paloma Belen González, Leonardo Valenzuela, Marcelo Caballero ##
+## API REST de Blog Paloma Belen González, Leonardo Valenzuela, Marcelo Caballero
 
 **Descripción:**
 
@@ -6,15 +6,16 @@ Esta API RESTful, construida con Node.js, ofrece funcionalidades CRUD para admin
 
 **Tecnologías:**
 
-* **Node.js:** Entorno de ejecución JavaScript para el backend.
-* **Winston:** Framework de logging para Node.js.
-* **JWT:** JSON Web Tokens para autenticación y autorización.
-* **Swagger:** Herramienta para definir y documentar APIs RESTful.
+- **Node.js:** Entorno de ejecución JavaScript para el backend.
+- **Winston:** Framework de logging para Node.js.
+- **JWT:** JSON Web Tokens para autenticación y autorización.
+- **Swagger:** Herramienta para definir y documentar APIs RESTful.
 
 **Instalación:**
 
 **Prerrequisitos:**
-* **Node.js:** Instala Node.js desde [https://nodejs.org/en/]
+
+- **Node.js:** Instala Node.js desde [https://nodejs.org/en/]
 
 **Pasos:**
 
@@ -22,15 +23,15 @@ Esta API RESTful, construida con Node.js, ofrece funcionalidades CRUD para admin
    git clone [(https://github.com/palomabgz/proyectoback-dpmt)]
 
 2. **Instalar las dependencias:**
-cd "carpeta donde se descargó el respositorio"
-npm install
+   cd .\proyectoback-dpmt\
+   npm install
 
 3. **Ejecucion:**
-npm start
+   npm start
 
 **Documentación:**
 PORT = 3000
-MONGODB_URI = 
+MONGO_URL =
 
 Base de datos Mongodb ["mongodb+srv://mcaballero879<PASSWORD>@cluster0.jp2qd.mongodb.net/DB_BlogsProyectoCUDIretryWrites=true&w=majority&appName=Cluster0"]
 

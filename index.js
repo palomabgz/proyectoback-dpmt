@@ -31,6 +31,9 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// rutas 
+
 app.use("/productos", routerProducto);
 app.use("/blogs", routerBlog);
 app.use("/autores", routerAutor);
@@ -44,6 +47,8 @@ app.get("/protected",authMiddleware, (req, res) => {
 app.use((req, res) => {
   res.status(404).send("<h1>404<h1>");
 });
+
+// coneccion a base de datos
 
 mongoose
   .connect(process.env.MONGO_URL)
