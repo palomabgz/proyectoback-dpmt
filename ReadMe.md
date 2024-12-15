@@ -30,7 +30,7 @@ Esta API RESTful, construida con Node.js, ofrece funcionalidades CRUD para admin
    npm start
 
 **Documentación:**
-PORT = 3000
+PORT = 3000 ;
 MONGO_URL =
 
 Base de datos Mongodb ["mongodb+srv://mcaballero879<PASSWORD>@cluster0.jp2qd.mongodb.net/DB_BlogsProyectoCUDIretryWrites=true&w=majority&appName=Cluster0"]
