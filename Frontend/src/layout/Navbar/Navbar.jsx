@@ -22,7 +22,7 @@ export function Navbar() {
         <nav className="navbar">
             <header className="container">
                 <div className="logo">
-                    <Link to={"/"}><img src="./img/logo.png" alt="logo" /></Link>
+                    <Link to={"/"}><img src="/./img/logo.png" alt="logo" /></Link>
                 </div>
                 <ul className="links">
                     <li><Link className="link" to={"/?cat=art"}>ART</Link></li>

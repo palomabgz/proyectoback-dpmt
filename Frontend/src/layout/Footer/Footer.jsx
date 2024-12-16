@@ -6,7 +6,7 @@ export function Footer(){
             <section className="content">
             <div className="info">
                 <div className="footer-logo">
-                <div><img src='./img/logo.png' alt="logo" /></div>
+                <div><img src='/./img/logo.png' alt="logo" /></div>
                 <span>Echo por los alumnos del curso de Desarrollo Web del CUDI</span>
                 </div>
                 <div className="footer-links">

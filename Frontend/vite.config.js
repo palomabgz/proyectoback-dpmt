@@ -10,23 +10,18 @@ export default defineConfig(({mode})=>{
       proxy: {
         '/auth': {
           target: env.VITE_API_URL,
-          rewrite: (path) => path.replace(/^\/auth/, '/auth'),
           changeOrigin: true,
           secure: true,
         },
         '/post': {
           target: env.VITE_API_URL,
-          rewrite: (path) => path.replace(/^\/post/, '/post'),  // Asegúrate de corregir esto
           changeOrigin: true,
           secure: true,
-          ws: true,
         },
         '/user': {
           target: env.VITE_API_URL,
-          rewrite: (path) => path.replace(/^\/user/, '/user'),  // Asegúrate de corregir esto
           changeOrigin: true,
           secure: true,
-          ws: true,
         }
       }
     }

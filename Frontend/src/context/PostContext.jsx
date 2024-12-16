@@ -37,8 +37,17 @@ export const PostProvider = ({ children }) => {
         setposts(res);
     }, [fetchData]);
 
+    const getPost = useCallback(async (id) => {
+        setposts([]);
+        const res = await fetchData({
+            url: `/post/getPost/${id}`,
+            method: 'get',
+        });
+        setposts(res);
+    }, [fetchData]);
+
     return (
-        <PostContext.Provider value={{ loading, error, posts, postPost, getPosts}}>
+        <PostContext.Provider value={{ loading, error, posts, postPost, getPosts, getPost}}>
             {children}
         </PostContext.Provider>
     )

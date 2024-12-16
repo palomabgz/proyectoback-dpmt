@@ -66,7 +66,6 @@ export function Register() {
     }
   }
 
-
   return (
     <section className='auth'>
 
@@ -95,7 +94,7 @@ export function Register() {
 
         <span className="noaccount">Tenes cuenta? <Link to="/login">Iniciar sesión</Link></span>
 
-        {/* Errores generales */}
+        {/* Errores generales del backend*/}
         {errorBackEnd.general && <p className="field-error">{errorBackEnd.general}</p>}
 
         {/* Errores del backend (Zod, etc.) */}
@@ -106,6 +105,7 @@ export function Register() {
             ))}
           </ul>
         )}
+        
       </section>
     </section>
   )

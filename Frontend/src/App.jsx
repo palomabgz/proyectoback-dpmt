@@ -4,6 +4,7 @@ import { Home } from "./pages/Home/Home.jsx"
 import { Error } from "./pages/Error/Error.jsx"
 import {Register} from "./pages/Auth/Register.jsx"
 import { Login } from "./pages/Auth/Login.jsx"
+import { Post } from "./pages/Post/Post.jsx"
 
 function App() {
 
@@ -11,12 +12,21 @@ function App() {
     {
       path: "/",
       element: <Layout />,
+      errorElement: <Error />,
       children: [
         {
           index: true,
           element: <Home />,
         },
+        {
+          path: "/detailPost/:id",
+          element: <Post/>,
+        }
       ],
+    },
+    {
+      path: "/*",
+      element: <Error />,
     },
     {
       path: "/register",
@@ -26,10 +36,6 @@ function App() {
       path: "/login",
       element: <Login />,
     },
-    {
-      path: "*",
-      element: <Error />,
-    }
   ])
 
   return (
