@@ -5,6 +5,7 @@ import { Error } from "./pages/Error/Error.jsx"
 import {Register} from "./pages/Auth/Register.jsx"
 import { Login } from "./pages/Auth/Login.jsx"
 import { Post } from "./pages/Post/Post.jsx"
+import { Write } from "./pages/Write/Write.jsx"
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
         {
           path: "/detailPost/:id",
           element: <Post/>,
+        },
+        {
+          path: "write",
+          element: <Write/>,
         }
       ],
     },

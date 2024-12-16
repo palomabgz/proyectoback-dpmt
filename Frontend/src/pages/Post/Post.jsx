@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../../context/authContext';
 import { usePost } from '../../context/PostContext';
@@ -12,11 +12,12 @@ dayjs.locale('es');
 
 import './post.css'
 import { PostAside } from '../../components/Menu/PostAside';
+import { use } from 'react';
 
 export function Post() {
 
     const { user } = useAuth()
-    const { getPost, posts, loading } = usePost()
+    const { getPost, posts, loading, getPostsAside } = usePost()
     const navigate = useNavigate()
 
     const { id } = useParams();// obtiene el id de la url
@@ -24,12 +25,20 @@ export function Post() {
     const userOwner = user && user.id === posts.userId?._id;
 
     useEffect(() => {
-        getPost(id)
+        if (id) {
+            getPost(id);
+        }
     }, [id]);
 
-      if (loading) {
-        return <h1>Cargando...</h1>; 
-      }
+    useEffect(() => {
+        if (posts.cat && posts._id) {
+            getPostsAside(posts.cat, posts._id)
+        }
+    }, [posts.cat, posts._id])
+
+    if (loading) {
+        return <h1>Cargando...</h1>;
+    }
 
     return (
         <main className="single">
@@ -42,17 +51,17 @@ export function Post() {
                     }
                     <div className="info">
                         <span>{posts.userId?.username}</span>
-                        <p>Posted {dayjs(posts.creationAt).fromNow()} </p>
+                        <p>Públicado {dayjs(posts.creationAt).fromNow()} </p>
                     </div>
 
                     {userOwner && (
                         <div className="edit">
-                            <Link to={`/write?edit=${posts.id}`} state={posts}>
+                            <Link to={`/write?edit=${posts._id}`} state={posts}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-pencil">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" />
                                 </svg>
                             </Link>
-                            <button onClick={() => deletePost(posts.id)}>
+                            <button onClick={() => deletePost(posts._id)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-trash">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                                 </svg>
@@ -66,7 +75,7 @@ export function Post() {
                 <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(posts.descrip) }}>
                 </div>
             </div>
-            <PostAside cat={posts.cat} idPost={posts.id}/>
+            <PostAside/>
         </main>
     )
 }

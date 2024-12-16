@@ -17,6 +17,7 @@ export const PostProvider = ({ children }) => {
     const { fetchData, loading, error } = useAxios()
 
     const [posts, setposts] = useState([]);
+    const [postsAside, setPostsAside] = useState([]);
 
     const postPost = async (data) => {
         await fetchData({
@@ -37,6 +38,14 @@ export const PostProvider = ({ children }) => {
         setposts(res);
     }, [fetchData]);
 
+    const getPostsAside = useCallback(async (cat, exclude) => {
+        const res = await fetchData({
+            url: `/post/getPostsAside/?cat=${cat}&exclude=${exclude}`,
+            method: 'get',
+        });
+        setPostsAside(res);
+    }, [fetchData]);
+
     const getPost = useCallback(async (id) => {
         setposts([]);
         const res = await fetchData({
@@ -47,7 +56,7 @@ export const PostProvider = ({ children }) => {
     }, [fetchData]);
 
     return (
-        <PostContext.Provider value={{ loading, error, posts, postPost, getPosts, getPost}}>
+        <PostContext.Provider value={{ loading, error, posts,postsAside,  postPost, getPosts, getPostsAside, getPost}}>
             {children}
         </PostContext.Provider>
     )
