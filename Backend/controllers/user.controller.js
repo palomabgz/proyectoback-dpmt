@@ -22,7 +22,11 @@ export const getUsers = async (req, res) => {
         //busca el correo del usuario
         const userFound = await Users.find();
 
-        res.status(201).json(userFound)
+        res.status(201).json({
+            id: userFound.id,
+            username: userFound.username,
+            email: userFound.email,
+        })
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: "Error interno del servidor" })

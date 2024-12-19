@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema({
     cat: {
         type: String,
         required: true,
-        enum: ['art', 'videogame', 'technology', 'cinema', 'food']
+        enum: ['art', 'videogames', 'tecnologies', 'cinema', 'food']
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,

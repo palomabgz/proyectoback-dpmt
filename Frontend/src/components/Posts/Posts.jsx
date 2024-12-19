@@ -9,6 +9,7 @@ dayjs.extend(relativeTime);
 dayjs.locale('es');
 
 import './posts.css'
+import { Loading } from "../Loading/Loading";
 
 
 export function Posts() {
@@ -18,6 +19,14 @@ export function Posts() {
   useEffect(() => {
     getPosts()
   }, [])
+
+  if (loading) {
+    return (
+      <section className="posts" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Loading />
+      </section>
+    );
+  }
 
   return (
     <section className="posts">
@@ -32,7 +41,7 @@ export function Posts() {
               <div className="content">
                 <div>
                   <h1>{post.title}</h1>
-                  <p className="date">Publicado {dayjs(post.creationAt).fromNow()}</p>
+                  <p className="date">Publicado {dayjs(post.createdAt).fromNow()}</p>
                 </div>
                 <div className="descip-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.descrip) }}></div>
               </div>

@@ -19,15 +19,22 @@ export const PostProvider = ({ children }) => {
     const [posts, setposts] = useState([]);
     const [postsAside, setPostsAside] = useState([]);
 
-    const postPost = async (data) => {
+    const addPost = async (data) => {
         await fetchData({
-            url: '/post/postPosts',
+            url: '/post/addPost',
             method: 'post',
             data: data,
             headers: {
                 'Content-Type': 'multipart/form-data',
             }
         })
+    }
+
+    const deletePost = async (id) => {
+        await fetchData({
+            url: `/post/deletePost/${id}`,
+            method: 'delete',
+        });
     }
 
     const getPosts = useCallback(async () => {
@@ -56,7 +63,7 @@ export const PostProvider = ({ children }) => {
     }, [fetchData]);
 
     return (
-        <PostContext.Provider value={{ loading, error, posts,postsAside,  postPost, getPosts, getPostsAside, getPost}}>
+        <PostContext.Provider value={{ loading, error, posts,postsAside,  addPost, deletePost, getPosts, getPostsAside, getPost}}>
             {children}
         </PostContext.Provider>
     )

@@ -37,16 +37,12 @@ export function Register() {
         newErrors.email = 'Ingrese un correo electrónico válido'
       }
     }
-    if (!formData.name) {
-      newErrors.name = 'El nombre es obligatorio'
-    }
-    if (!formData.password) {
-      newErrors.password = 'El contraseña es obligatorio'
-    }
-    if (formData.password.length < 6) {
-      newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
-    }
-
+    if (!formData.name) newErrors.name = 'El nombre es obligatorio'
+    
+    if (!formData.password) newErrors.password = 'El contraseña es obligatorio'
+    
+    if (formData.password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
+    
     // Si hay errores, mostrarlos y detener el envio del formulario
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -55,7 +51,6 @@ export function Register() {
 
     try {
       await signUp(formData)
-      // console.log('Respuesta del servidor:', res.data);
       navigate('/login')
     } catch (error) {
       if (Array.isArray(error)) {

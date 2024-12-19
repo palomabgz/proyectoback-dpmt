@@ -69,7 +69,9 @@ export const getPost = async (req, res) => {
 };
 
 export const addPost = async (req, res) => {
-    const { title, descrip, cat, userId } = req.body;
+    const { title, descrip, cat } = req.body;
+    const userId = req.user;
+    console.log(userId)
     const img = req.file?.path || "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1273516682.jpg?c=16x9&q=h_833,w_1480,c_fill";
     try {
         const post = new Posts({
@@ -83,6 +85,22 @@ export const addPost = async (req, res) => {
         await post.save();
 
         res.status(201).json({message: "Post creado con éxito"});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error interno del servidor" });
+    }
+};
+
+export const deletePost = async (req, res) => {
+    const postId = req.params.id;
+    console.log(postId)
+    try {
+        const post = await Posts.findByIdAndDelete(postId);
+        if (!post) {
+            return res.status(404).json({ message: "Post no encontrado" });
+        }
+
+        res.status(200).json({ message: "Post eliminado con éxito" });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Error interno del servidor" });

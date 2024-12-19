@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const categorias = ['art', 'videoGames', 'tecnologies', 'cinema', 'food'];
+const categorias = ['art', 'videogames', 'tecnologies', 'cinema', 'food'];
 
 export const postSchema = z.object({
     title: z

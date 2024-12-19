@@ -36,12 +36,9 @@ export function Login() {
                 newErrors.email = 'Ingrese un correo electrónico válido'
             }
         }
-        if (!formData.password) {
-            newErrors.password = 'El contraseña es obligatorio'
-        }
-        if (formData.password.length < 6) {
-            newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
-        }
+        if (!formData.password) newErrors.password = 'El contraseña es obligatorio'
+        
+        if (formData.password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
         
         // Si hay errores los muestra y detiene el envio del formulario
         if (Object.keys(newErrors).length > 0) {
@@ -51,7 +48,6 @@ export function Login() {
 
         try {
             await signIn(formData)
-            // console.log('Respuesta del servidor:', res.data);
             navigate('/')
         } catch (error) {
             if (Array.isArray(error)) {
