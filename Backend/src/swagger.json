@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api de Backend Blogs",
+        "version": "2.0.0",
+        "description": "Documentacon de la API"
+    },
+    "paths":{
+        "/getUser": {
+            "get": {
+                "sumary": "Obtiene un usuario",
+                "tags": ["users"]
+            }
+         
+        },
+        "/getUsers": {
+            "get": {
+                "sumary": "Obtiene todos los usuarios",
+                "tags": ["users"]
+            }
+         
+        },
+        "/auth": {
+            "get": {
+                "sumary": "ruta de autenticacion",
+                "tags": ["auth"]
+            },
+            "post": {
+                "sumary": "ruta de usuarios post",
+                "tags": ["auth"]
+            } 
+        },
+        "/posts/getPost": {
+            "get": {
+                "sumary": "obtiene los blogs",
+                "tags": ["blogs"]
+            } 
+        },
+        "/posts/getOnePost": {
+            "get": {
+                "sumary": "obtiene un blog indicado el _id",
+                "tags": ["blogs"]
+            } 
+        }
+        
+        
+    }
+}
