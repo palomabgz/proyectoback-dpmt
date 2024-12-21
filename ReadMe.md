@@ -10,6 +10,7 @@ Esta API RESTful, construida con Node.js, ofrece funcionalidades CRUD para admin
 * **Winston:** Framework de logging para Node.js.
 * **JWT:** JSON Web Tokens para autenticación y autorización.
 * **Swagger:** Herramienta para definir y documentar APIs RESTful.
+* **mongoose:** conector de mongodb.
 
 **Instalación:**
 
