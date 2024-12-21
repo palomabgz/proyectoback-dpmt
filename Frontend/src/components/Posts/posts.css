@@ -2,11 +2,11 @@
 .home .posts{
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    max-width: 1000px;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    max-width: 1250px;
     margin: auto;
     margin-top: 3rem;
-    gap: 30px;
+    gap: 2rem;
     row-gap: 40px;
 }
 
@@ -44,6 +44,11 @@
 .home .post .content h1{
     font-size: 26px;
     transition: 0.2s;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-break: auto;
+    -webkit-box-orient: vertical;
 }
 .home .posts a:hover h1{
     color: rgb(59, 130, 246);

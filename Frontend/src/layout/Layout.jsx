@@ -5,9 +5,9 @@ import { Footer } from "./Footer/Footer"
 export const Layout = () => {
   return (
     <>
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </>
   )
 }

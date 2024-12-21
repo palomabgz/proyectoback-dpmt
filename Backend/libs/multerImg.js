@@ -3,19 +3,19 @@ import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { CLOUD_API_KEY, CLOUD_API_SECRET, CLOUD_NAME } from "../src/config.js";
 import multer from "multer";
 
-// Configuración de Cloudinary con tus credenciales
+// Configuracion de Cloudinary con keys
 cloudinary.config({
     cloud_name: CLOUD_NAME,
     api_key: CLOUD_API_KEY,
     api_secret: CLOUD_API_SECRET,
 });
 
-// Configuración de multer para subir a Cloudinary
+// Configuracion de multer para subir las imagenes a Cloudinary
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
         folder: 'blog',  // Carpeta en Cloudinary
-        allowed_formats: ['jpg', 'png', 'jpeg'], // Formatos permitidos
+        allowed_formats: ['jpg', 'png', 'jpeg'],
     },
 });
 
@@ -29,22 +29,18 @@ export const upload = multer({
 export const uploadImage = (req, res, next) => {
     upload(req, res, async (err) => {
         if (err instanceof multer.MulterError) {
-            // Error específico de Multer (por ejemplo, límite de tamaño de archivo alcanzado)
             console.error("Multer error:", err);
-            return res.status(400).json({ error: `Error en la carga del archivo: ${err.message}` });
+            return res.status(400).json({ error: `Error en la carga del archivo: ${err.message}` }); //error al cargar el archivo para subirlo o formato de archivo no permitido
         } else if (err) {
-            // Otro tipo de error (conexión a Cloudinary, etc.)
             console.error("Error general:", err);
-            return res.status(500).json({ error: "Error al procesar la imagen. Intenta nuevamente." });
+            return res.status(500).json({ error: "Error al procesar la imagen. Intenta nuevamente." }); //error de conexion a Cloudinary o general
         }
 
         try {
-            // Si la imagen se sube correctamente, continuamos con la carga a Cloudinary
             const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
             req.file.cloudinaryUrl = cloudinaryResponse.secure_url;
             next();
         } catch (cloudinaryErr) {
-            // Error en la conexión o en la carga a Cloudinary
             console.error("Error al subir a Cloudinary:", cloudinaryErr);
             return res.status(500).json({ error: "Error al conectar con Cloudinary. Intenta nuevamente." });
         }

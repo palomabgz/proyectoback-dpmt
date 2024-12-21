@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { usePost } from "../../context/PostContext"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import DOMPurify from 'dompurify'; // Extecion para sanitizar el html
 import dayjs from 'dayjs';// Extensión para formatear la fecha
 import 'dayjs/locale/es';
@@ -16,9 +16,11 @@ export function Posts() {
 
   const { loading, error, posts, getPosts } = usePost()
 
+  const cat = useLocation().search
+
   useEffect(() => {
-    getPosts()
-  }, [])
+    getPosts(cat)
+  }, [cat])
 
   if (loading) {
     return (
@@ -27,6 +29,16 @@ export function Posts() {
       </section>
     );
   }
+
+  if (error.length > 0) {
+    return (
+        error && (
+            <main className="single">
+                <h1>{error || 'Error al cargar el post'}</h1>
+            </main>
+        )
+    )
+}
 
   return (
     <section className="posts">

@@ -24,7 +24,7 @@ export const useAxios = () => {
             //console.log(error)
             console.error(error?.response?.data?.error || error?.response?.data?.message || ['Error en el envío de la petición'])
             setError(error?.response?.data?.error || error?.response?.data?.message || ['Error en el envío de la petición']); // Actualiza el estado de error
-            throw (error?.response?.data?.error || error?.response?.data?.message || ['Error en el envío de la petición del servidor']);
+            throw (error?.response?.data?.error || error?.response?.data?.message || ['Error en el envío de la petición del servidor']); // Retorna el error
         } finally {
             setLoading(false)
         }

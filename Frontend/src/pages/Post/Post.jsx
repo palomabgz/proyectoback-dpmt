@@ -16,12 +16,12 @@ import './post.css'
 export function Post() {
 
     const { user } = useAuth()
-    const { getPost,  getPostsAside, deletePost, posts, loading, error } = usePost()
+    const { getPost, getPostsAside, deletePost, posts, loading, error } = usePost()
+    
+    const { id } = useParams(); // obtiene el id de la url
     const navigate = useNavigate()
-
-    const { id } = useParams();// obtiene el id de la url
-
-    const userOwner = user && user.id === posts.userId?._id;
+    
+    const userOwner = user && user.id === posts.userId?._id; // verifica si el usuario es el propietario del post
 
     useEffect(() => {
         if (id) {
@@ -29,6 +29,7 @@ export function Post() {
         }
     }, [id]);
 
+    //trae los posts del aside
     useEffect(() => {
         if (posts.cat && posts._id) {
             getPostsAside(posts.cat, posts._id)

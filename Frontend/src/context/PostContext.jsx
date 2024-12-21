@@ -29,6 +29,18 @@ export const PostProvider = ({ children }) => {
             }
         })
     }
+    
+    const updatePost = async (data, id) => {
+        console.log(data)
+        await fetchData({
+            url: `/post/updatePost/${id}`,
+            method: 'put',
+            data: data,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            }
+        })
+    }
 
     const deletePost = async (id) => {
         await fetchData({
@@ -37,9 +49,10 @@ export const PostProvider = ({ children }) => {
         });
     }
 
-    const getPosts = useCallback(async () => {
+
+    const getPosts = useCallback(async (cat) => {
         const res = await fetchData({
-            url: `/post/getPosts`,
+            url: `/post/getPosts/${cat}`,
             method: 'get',
         });
         setposts(res);
@@ -63,7 +76,7 @@ export const PostProvider = ({ children }) => {
     }, [fetchData]);
 
     return (
-        <PostContext.Provider value={{ loading, error, posts,postsAside,  addPost, deletePost, getPosts, getPostsAside, getPost}}>
+        <PostContext.Provider value={{ loading, error, posts,postsAside,  addPost, updatePost, deletePost, getPosts, getPostsAside, getPost}}>
             {children}
         </PostContext.Provider>
     )

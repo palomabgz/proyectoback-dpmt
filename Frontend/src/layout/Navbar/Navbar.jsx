@@ -8,7 +8,7 @@ export function Navbar() {
 
     const navigate = useNavigate()
 
-    // Manejo de cierre de sesion
+    // Cierre de sesion
     const handleLogout = async () => {
         try {
             await logout()
@@ -26,7 +26,7 @@ export function Navbar() {
                 </div>
                 <ul className="links">
                     <li><Link className="link" to={"/?cat=art"}>ART</Link></li>
-                    <li><Link className="link" to={"/?cat=videogame"}>Videojuegos</Link></li>
+                    <li><Link className="link" to={"/?cat=videogames"}>Videojuegos</Link></li>
                     <li><Link className="link" to={"/?cat=technology"}>Tecnologia</Link></li>
                     <li><Link className="link" to={"/?cat=cinema"}>Cine</Link></li>
                     <li><Link className="link" to={"/?cat=food"}>Comidas</Link></li>
