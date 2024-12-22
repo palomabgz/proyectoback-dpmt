@@ -3,11 +3,12 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
-    max-width: 1250px;
+    max-width: 1350px;
     margin: auto;
     margin-top: 3rem;
     gap: 2rem;
     row-gap: 40px;
+    padding-inline: 2rem;
 }
 
 .home .post{
@@ -15,9 +16,6 @@
     flex-direction: column;
     gap: 10px;
 }
-/* .home .post:nth-child(2n+1){
-    flex-direction: row-reverse;
-} */
 
 .home .post .date{
     font-size: 14px;
@@ -81,4 +79,16 @@
     border: 1px solid white;
     background: teal;
     color: black;
+}
+
+@media screen and (max-width: 1150px){
+    .home .posts{
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 800px){
+    .home .posts{
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
 }

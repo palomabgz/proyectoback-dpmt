@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useAuth } from "../../context/authContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import { usePost } from "../../context/PostContext";
 import { IconCam } from "../../assets/Icons";
 import ReactQuill from 'react-quill-new';
-import "react-quill/dist/quill.snow.css";
+import "react-quill-new/dist/quill.snow.css";
 import './write.css'
+import Swal from "sweetalert2";
 
 const categorias = ['art', 'videogames', 'tecnologies', 'cinema', 'food'];
 
@@ -112,14 +113,32 @@ export function Write() {
     }
 
     try {
+      Swal.fire({
+        title: 'Cargando...',
+        text: 'Subiendo el artículo, por favor espere.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
       if (location) {
         const postid = location._id
         await updatePost(formSend, postid);
       } else {
         await addPost(formSend);
       }
+
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'El artículo se ha subido correctamente.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
       navigate('/');
     } catch (error) {
+      Swal.close();
       if (Array.isArray(error)) {
         setErrorBackEnd({ general: '', backendErrors: error });
       } else {

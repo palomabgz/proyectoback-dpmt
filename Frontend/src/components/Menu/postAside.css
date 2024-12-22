@@ -26,6 +26,11 @@
 .menu .post h2{
     font-size: 20px;
     color: #555;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-break: auto;
+    -webkit-box-orient: vertical;
 }
 
 .post  span{

@@ -2,8 +2,7 @@
     position: sticky;
     top: 0;
     padding-block: 14px;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-inline: 3rem;
     box-shadow: 0 1px 8px rgba(0,0,0,.15);
     z-index: 10;
     background: #fff;
@@ -12,6 +11,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1800px;
+    width: 100%;
+    margin: auto;
 }
 
 .navbar .container .logo img{
@@ -104,4 +106,23 @@
     background: white;
     border: 1px solid teal;
     transition: 0.3s;
+}
+
+@media screen and (max-width: 1110px){
+    .navbar .container .links{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 930px){
+    .navbar{
+       padding-inline: 1rem;
+       padding-block: 1rem;
+    }
+    .navbar .container .write{
+        width: fit-content;
+        height: fit-content;
+        padding: 5px 10px;
+        border-radius: 6px;
+    }
 }

@@ -1,8 +1,6 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { usePost } from '../../context/PostContext'
 import './postAside.css'
-import axios from 'axios';
 
 export function PostAside() {
 

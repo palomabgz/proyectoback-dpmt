@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { InfoAuth } from './InfoAuth'
-import { useAuth } from '../../context/authContext'
+import { useAuth } from '../../context/AuthContext'
+import Swal from 'sweetalert2'
 import './auth.css'
 
 export function Login() {
@@ -37,9 +38,9 @@ export function Login() {
             }
         }
         if (!formData.password) newErrors.password = 'El contraseña es obligatorio'
-        
+
         if (formData.password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres'
-        
+
         // Si hay errores los muestra y detiene el envio del formulario
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -47,9 +48,25 @@ export function Login() {
         }
 
         try {
+            Swal.fire({
+                title: "Cargando...",
+                allowOutsideClick: false,
+                didOpen: () => {
+                  Swal.showLoading();
+                },
+              });
+            
             await signIn(formData)
             navigate('/')
+
+            Swal.fire({
+                icon: "success",
+                title: "¡Éxito!",
+                timer: 1000,
+                showConfirmButton: false,
+            });
         } catch (error) {
+            Swal.close();
             if (Array.isArray(error)) {
                 setErrorBackEnd({ general: '', backendErrors: error });
             } else {

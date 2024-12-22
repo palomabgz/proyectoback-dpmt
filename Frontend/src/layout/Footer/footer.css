@@ -8,11 +8,14 @@ footer{
 
 footer .content{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 6rem;
+    padding-bottom: 12rem;
+    padding-inline: 2rem;
     border-top: 1px solid #1a4349;
     border-bottom: 1px solid #1a4349;
+    gap: 2rem;
 }
 
 footer .info{
@@ -27,6 +30,7 @@ footer .info{
 footer .content .footer-logo{
     display: flex;
     flex-direction: column;
+    text-wrap: nowrap;
     flex: 2;
 }
 
@@ -36,6 +40,8 @@ footer .content .footer-links{
     align-items: self-start;
     text-align: start;
     flex-direction: row;
+    text-wrap: nowrap;
+    gap: 2rem;
     flex: 3;
 }
 .footer-links h1{
@@ -67,4 +73,10 @@ footer .copy .links{
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+@media screen and (max-width: 911px){
+    footer .content .footer-links{
+        justify-content: space-between;
+    }
 }

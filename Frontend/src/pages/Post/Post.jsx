@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useAuth } from '../../context/authContext';
+import { useAuth } from '../../context/AuthContext';
 import { usePost } from '../../context/PostContext';
 import { PostAside } from '../../components/Menu/PostAside';
 import { Loading } from '../../components/Loading/Loading';
+import Swal from 'sweetalert2';
 import DOMPurify from 'dompurify'; // Extecion para sanitizar el html
 import dayjs from 'dayjs';// Extensión para formatear la fecha
 import 'dayjs/locale/es';
@@ -17,10 +18,10 @@ export function Post() {
 
     const { user } = useAuth()
     const { getPost, getPostsAside, deletePost, posts, loading, error } = usePost()
-    
+
     const { id } = useParams(); // obtiene el id de la url
     const navigate = useNavigate()
-    
+
     const userOwner = user && user.id === posts.userId?._id; // verifica si el usuario es el propietario del post
 
     useEffect(() => {
@@ -37,11 +38,32 @@ export function Post() {
     }, [posts.cat, posts._id])
 
     const handleDeletePost = async (id) => {
-        try {
-            await deletePost(id);
-            navigate('/');
-        } catch (error) {
-            console.log(error);
+        const result = await Swal.fire({
+            icon: 'warning',
+            title: '¿Seguro que quieres borrar este post?',
+            showCancelButton: true,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar',
+        });
+    
+        if (result.isConfirmed) {
+            try {
+                await deletePost(id); 
+                navigate('/');
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Borrado!',
+                    text: 'Post borrado con éxito.',
+                    showConfirmButton: false,
+                    timer: 1200,
+                });
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se pudo borrar el post. Intenta de nuevo.',
+                });
+            }
         }
     }
 
@@ -93,7 +115,7 @@ export function Post() {
 
                         </div>
                         <h1>{posts.title}</h1>
-                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(posts.descrip) }}>
+                        <div className='descrip' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(posts.descrip) }}>
                         </div>
                     </div>
                     <PostAside />

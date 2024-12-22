@@ -1,16 +1,14 @@
 import { useEffect } from "react"
 import { usePost } from "../../context/PostContext"
 import { Link, useLocation } from "react-router-dom"
+import { Loading } from "../Loading/Loading";
 import DOMPurify from 'dompurify'; // Extecion para sanitizar el html
 import dayjs from 'dayjs';// Extensión para formatear la fecha
 import 'dayjs/locale/es';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 dayjs.locale('es');
-
 import './posts.css'
-import { Loading } from "../Loading/Loading";
-
 
 export function Posts() {
 

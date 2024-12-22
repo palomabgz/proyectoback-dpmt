@@ -9,6 +9,7 @@
     border-radius: 10px;
     border: 1px solid rgb(1, 154, 116);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
+
 }
 .auth.login{
     height: 450px;
@@ -118,4 +119,49 @@
 .auth .block2 p{
     color: red;
     font-size: 14px;
+}
+
+@media screen and (max-width: 1060px) {
+    .auth{
+        height: auto;
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .auth{
+        flex-direction: column-reverse;
+        height: 100%;
+        width: 600px;
+        margin-top: 1rem;
+    }
+    .auth .block1{
+        width: 100%;
+        padding-top: 1rem;
+    }
+    .auth .block2{
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 10px 30px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .auth{
+        flex-direction: column-reverse;
+        height: 100%;
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        margin-top: 1.5rem;
+    }
+    .auth .block1{
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .auth .block2{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
