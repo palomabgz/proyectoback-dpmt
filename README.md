@@ -1,39 +1,42 @@
-## API REST de Blog Paloma Belen, Leonardo Valen, Marcelo Caballero ##
+## API REST de Blog Paloma Belen, Leonel Valenzuela, Marcelo Caballero ##
 
-**Descripción:**
+### Descripción:
 
-Esta API RESTful, construida con Node.js, ofrece funcionalidades CRUD para administrar el contenido de un blog. Utiliza tecnologías como Winston para gestionar logs, JWT para autenticación y Swagger para documentar la API.
+Esta API RESTful, construida con Node.js y ReactJS, permite a los usuarios loggearse, crear, leer, actualizar y eliminar artículos en un blog.
 
-**Tecnologías:**
+### Tecnologías:
 
 * **Node.js:** Entorno de ejecución JavaScript para el backend.
-* **Winston:** Framework de logging para Node.js.
+* **Express.js:** Framework de Node.js para construir el backend.
 * **JWT:** JSON Web Tokens para autenticación y autorización.
-* **Swagger:** Herramienta para definir y documentar APIs RESTful.
+* **Cloudinary:** Servicio de almacenamiento de imágenes para almacenar las imágenes subidas por los usuarios.
+* **ReactJS:** Framework de JavaScript para construir el frontend.
+* **MongoDB:** Base de datos NoSQL para almacenar los datos.
 
-**Instalación:**
+### Instalación:
 
 **Prerrequisitos:**
-* **Node.js:** Instala Node.js desde [https://nodejs.org/en/]
+* **Node.js:** Instala Node.js desde [nodejs.org](https://nodejs.org/en/ "nodejs.org").
+* **MongoDB:** Crea una cuenta en MongoDB y crea una base de datos en [mongodb.com](https://www.mongodb.com/ "mongodb.com").
+* **Clodiniary:** Crea una cuenta en [cloudinary.com](https://cloudinary.com/ "cloudinary.com").
 
 **Pasos:**
 
 1. **Clonar el repositorio:**
-   git clone [(https://github.com/palomabgz/proyectoback-dpmt)]
+   git clone https://github.com/palomabgz/proyectoback-dpmt.git
 
 2. **Instalar las dependencias:**
-cd "carpeta donde se descargó el respositorio"
+abrir la terminal de la carpeta del frontend y backend del proyecto y ejecutar el siguiente comando para instalar las dependencias:
 npm install
 
 3. **Ejecucion:**
-npm start
+npm run dev
 
-**Documentación:**
-PORT = 3000
-MONGODB_URI = 
+### Documentación:
 
-Base de datos Mongodb ["mongodb+srv://mcaballero879<PASSWORD>@cluster0.jp2qd.mongodb.net/DB_BlogsProyectoCUDIretryWrites=true&w=majority&appName=Cluster0"]
+En el archivo .env.template borrar el '.template' dejandolo como .env y completar los datos de la base de datos, JWT, etc.
 
-Para explorar la documentación interactiva de la API, visita:
 
-https://swagger.io/solutions/api-documentation/
+MONGODB_URI = mongodb+srv://USER:PASSWORD@cluster0.0c5y.mongodb.net/blog?retryWrites=true&w=majority
+JWT_SECRET = SECRET123
+etc.
